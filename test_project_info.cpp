@@ -8,7 +8,7 @@ BOOST_AUTO_TEST_SUITE(project_info_test_suite)
 
 BOOST_AUTO_TEST_CASE(project_info_test_build_num)
 {
-    BOOST_CHECK(project_info::version::get_build_num() == 42);
+    BOOST_CHECK(project_info::version::get_build_num() > 0 );
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __PROJECT_INFO_HPP_
+#define __PROJECT_INFO_HPP_
 #include <iostream>
 
 
@@ -34,3 +35,4 @@ namespace project_info
 #undef PROJECT_INFO_VERSION_PATCH
 #undef PROJECT_INFO_VERSION_BUILD_NUM
 }
+#endif

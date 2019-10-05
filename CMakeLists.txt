@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(cmake VERSION 0.0.0)
+project(homework_01 VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 find_package(Threads REQUIRED)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)

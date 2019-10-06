@@ -23,7 +23,13 @@ namespace project_info
       CREATE_GET(static constexpr, build_num);
 #undef CREATE_GET
 
-      friend std::ostream &operator << (std::ostream &, version const &);
+      friend inline std::ostream& operator << (std::ostream &out,
+                                               version const &ver)
+      {
+        return out << ver.get_major() << '.'
+                   << ver.get_minor() << '.'
+                   << ver.get_patch();
+      }
   };
 }
 #endif

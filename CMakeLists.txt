@@ -16,12 +16,11 @@ find_package(Boost COMPONENTS log REQUIRED)
 
 configure_file(project_info.hpp.in ${PROJECT_SOURCE_DIR}/project_info.hpp)
 
-add_library(project_info project_info.cpp)
 add_executable(helloworld_cli main.cpp)
 add_executable(test_project_info test_project_info.cpp)
 
 set_target_properties(
-    helloworld_cli project_info test_project_info
+    helloworld_cli test_project_info
         PROPERTIES
             CXX_STANDARD 17
             CXX_STANDARD_REQUIRED ON
@@ -37,7 +36,6 @@ set_target_properties(
 
 target_link_libraries(
     helloworld_cli
-        project_info
         boost_system
         boost_thread
         boost_log_setup
@@ -47,7 +45,6 @@ target_link_libraries(
 
 target_link_libraries(
     test_project_info
-        project_info
         boost_unit_test_framework
         Threads::Threads
 )
@@ -61,7 +58,7 @@ set(CPACK_PACKAGE_CONTACT vasilevnikitad@gmail.com)
 set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
 install(
-    TARGETS helloworld_cli test_project_info project_info 
+    TARGETS helloworld_cli test_project_info
             RUNTIME DESTINATION bin
             LIBRARY DESTINATION lib
             ARCHIVE DESTINATION lib/static

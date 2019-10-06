@@ -5,7 +5,7 @@
 
 namespace project_info
 {
-  class version {
+  constexpr class version {
     private:
       static constexpr unsigned major{@PROJECT_VERSION_MAJOR@};
       static constexpr unsigned minor{@PROJECT_VERSION_MINOR@};
@@ -30,6 +30,6 @@ namespace project_info
                    << ver.get_minor() << '.'
                    << ver.get_patch();
       }
-  };
+  } version;
 }
 #endif

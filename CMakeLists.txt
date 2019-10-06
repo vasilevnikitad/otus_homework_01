@@ -1,13 +1,18 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+set( PROJECT_BUILD_NUMBER $ENV{TRAVIS_BUILD_NUMBER} )
+
+if ("${ROJECT_BUILD_NUMBER}" STREQUAL "")
+    set(PROJECT_BUILD_NUMBER "1")
+endif ("${ROJECT_BUILD_NUMBER}" STREQUAL "")
+
+project(helloworld VERSION 0.0.${PROJECT_BUILD_NUMBER})
 
 find_package(Threads REQUIRED)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 find_package(Boost COMPONENTS log_setup REQUIRED)
 find_package(Boost COMPONENTS log REQUIRED)
 
-set( PROJECT_BUILD_NUMBER $ENV{TRAVIS_BUILD_NUMBER} )
 
 configure_file(project_info.hpp.in ${PROJECT_SOURCE_DIR}/project_info.hpp)
 

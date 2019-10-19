@@ -10,6 +10,6 @@ int main()
   boost::log::add_console_log(std::cout, boost::log::keywords::format = "%Message%");
 
   BOOST_LOG_TRIVIAL(info) << "build " << project_info::version::get_patch();
-  BOOST_LOG_TRIVIAL(info) << "Hello, world!";
+  BOOST_LOG_TRIVIAL(info) << "Hello, World!";
   return 0;
 }
